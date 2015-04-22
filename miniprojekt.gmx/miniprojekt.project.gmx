@@ -6,6 +6,7 @@
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\sndFootsteps</sound>
+    <sound>sound\sndCasingPistol</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Player">
@@ -15,22 +16,47 @@
     <sprite>sprites\sBuildMenu</sprite>
     <sprite>sprites\sBuildPlace</sprite>
     <sprite>sprites\killme</sprite>
+    <sprite>sprites\sFlash</sprite>
+    <sprite>sprites\sCasing</sprite>
+    <sprite>sprites\sPlayermask</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bDemotest</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scrBuildMenuCreate.gml</script>
-    <script>scripts\scrBuildMenuStep.gml</script>
-    <script>scripts\scrBuildMenuShow.gml</script>
-    <script>scripts\scrBuildMenuDraw.gml</script>
+    <scripts name="API">
+      <scripts name="scrBuildMenu">
+        <script>scripts\scrBuildMenuCreate.gml</script>
+        <script>scripts\scrBuildMenuStep.gml</script>
+        <script>scripts\scrBuildMenuShow.gml</script>
+        <script>scripts\scrBuildMenuDraw.gml</script>
+      </scripts>
+      <scripts name="Trail">
+        <script>scripts\trail_create.gml</script>
+        <script>scripts\trail_update.gml</script>
+        <script>scripts\trail_add_line.gml</script>
+        <script>scripts\trail_scatter.gml</script>
+        <script>scripts\draw_trail.gml</script>
+        <script>scripts\trail_drift.gml</script>
+        <script>scripts\trail_set.gml</script>
+        <script>scripts\trail_step.gml</script>
+        <script>scripts\trail_draw.gml</script>
+      </scripts>
+      <scripts name="Math">
+        <script>scripts\mathDecToHex.gml</script>
+      </scripts>
+    </scripts>
   </scripts>
   <objects name="objects">
     <object>objects\oPlayer</object>
     <object>objects\settings</object>
     <object>objects\parWall</object>
     <object>objects\oBuildPlace</object>
+    <object>objects\oFlash</object>
+    <object>objects\oCasing</object>
+    <object>objects\oDecal</object>
+    <object>objects\oBullet</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>
