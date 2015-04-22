@@ -6,7 +6,7 @@
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
-  <maskName>sPlayermask</maskName>
+  <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
       <action>
@@ -51,9 +51,7 @@ can_shoot2   = 1;                                                               
 can_shootN   = 1;                                                                //Special check for shooting
 reload       = 20;                                                               //Reloading timer
 reload2      = 0;                                                                //Control grenade distance
-is_reloading = 0;                                                                //Control reloading
-timer_reload = 0;                                                                //Reload time
-accuray      = 6;                                                                //For spray effect
+
 
 </string>
           </argument>
@@ -145,101 +143,6 @@ if (abs(dd) &lt; ts) {b_angle = h_angle} else {b_angle += sign(dd) * ts;}       
    
    
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Shooting
-
-
-if (can_move &amp;&amp; can_move2)
-{
-if mouse_check_button(mb_left)
-    {
-    if (can_shoot &amp;&amp; can_shootN)
-        {
-        
-        // Calculate variables ************************************************************************************       
-        can_shoot               = 0;                                                //Reload
-        is_reloading            = 1;                                                //Set reloading
-        timer_reload            = reload;                                           //Fire ot up
-        mod_dif                 = (b_angle + (accuray/2) - random(accuray));        //Get accuray
-        bullet_xx               = x + lengthdir_x(20, mod_dif);                     // Get accuray vertex, x part 
-        bullet_yy               = y + lengthdir_y(20, mod_dif);                     // Get accuray vertex, y part 
-
-       
-        
-         
-          
-        // Spawn instances ****************************************************************************************
-        audio_play_sound(snd_GunShoot_Pistol, 0, false);      
-        instance_create(bullet_xx, bullet_yy, oFlash);                     
-        with (instance_create(bullet_xx,bullet_yy,oBullet))        
-        {
-        dir = mod_dif;                                      
-        }
-        
-        with (instance_create(x + lengthdir_x(18, b_angle), y + lengthdir_y(18, b_angle), oCasing))
-            {
-            image_index = 0;
-            direction = (other.b_angle + 90) - 15 + random(30);
-            image_angle = direction - 90;
-            }
-            
-
-            
-            
-        }
-    }
-}
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Reload
-
-
-if (is_reloading)
-   {
-    if (timer_reload &gt; 0)
-       {
-        timer_reload --;
-       }
-       else {is_reloading = 0; can_shoot = 1;}
-   }
 </string>
           </argument>
         </arguments>

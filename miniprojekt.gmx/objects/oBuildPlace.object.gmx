@@ -54,24 +54,17 @@ if (mouse_check_button_pressed(mb_left))
 {
  if (distance_to_point(mouse_x,mouse_y) = 0)
     {   
-    if (buildMenuShow = 0)
-        {
-        scrBuildMenuShow(true)     
-        }
-    builded = true;
+        if (buildMenuShow = 0)
+            {
+            scrBuildMenuShow(true)     
+            }
+        if builded = false audio_play_sound(sndMenuOpen,0,0);
+        builded = true;
     }
     else
     {
-    builded = false;
-    /*if (!builded)
-        {
-         if (buildMenuScale &gt; 0 )
-            {
-            buildMenuShow = 0;
-            buildMenuScale -= (buildMenuScaleSpeed);
-            }
-            else { builded = 0; buildMenuShow = 0;}
-        }*/
+        if builded = true audio_play_sound(sndMenuClose,0,0);
+        builded = false;
     }
 }
 
